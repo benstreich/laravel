@@ -133,37 +133,30 @@
   <body>
     <div class="main-block">
       <h1>Registration</h1>
-      <form action="/">
+      <form method="post" action="?">
+        @csrf
         <hr>
         <div class="account-type">
-          <input type="radio" value="none" id="radioOne" name="account" checked/>
-          <label for="radioOne" class="radio">Company</label>
-          <input type="radio" value="none" id="radioTwo" name="account" />
-          <label for="radioTwo" class="radio">Personal</label>
+          <input type="radio" value="yes" id="answer1" name="answer" checked/>
+          <label for="answer1" class="radio">Available</label>
+          <input type="radio" value="no" id="answer2" name="answer" />
+          <label for="answer2" class="radio">Unavailable</label>
         </div>
         <hr>
-        <label id="icon" for="name"><i class="fas fa-envelope"></i></label>
-        <input type="text" name="name" id="name" placeholder="Email" required/>
+       
         <label id="icon" for="name"><i class="fas fa-user"></i></label>
-        <input type="text" name="name" id="name" placeholder="Name" required/>
-        <label id="icon" for="name"><i class="fas fa-user"></i></label>
-        <input type="text" name="firstname" id="firstname" placeholder="Firstname" required/>
-        <label id="icon" for="name"><i class="fas fa-unlock-alt"></i></label>
-        <input type="password" name="name" id="name" placeholder="Password" required/>
-        
-        <hr>
-        <div class="gender">
-          <input type="radio" value="none" id="male" name="gender" checked/>
-          <label for="male" class="radio">Male</label>
-          <input type="radio" value="none" id="female" name="gender" />
-          <label for="female" class="radio">Female</label>
-        </div>
-        <hr>
+        <input type="text" name="last_name" id="last_name" placeholder="Last name" required/>
+        <label id="icon" for="first_name"><i class="fas fa-user"></i></label>
+        <input type="text" name="first_name" id="first_name" placeholder="First name" required/>
+        <label id="icon" for="email"><i class="fas fa-envelope"></i></label>
+        <input type="text" name="email" id="email" placeholder="Email" required/>
+      
         <div class="btn-block">
           <p>By clicking Register, you agree on our <a href="https://www.w3docs.com/privacy-policy">Privacy Policy for W3Docs</a>.</p>
           <button type="submit" href="/">Submit</button>
         </div>
       </form>
+
     </div>
   </body>
 </html>
