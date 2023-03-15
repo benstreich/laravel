@@ -28,10 +28,10 @@ class ApplicationController extends Controller
         $applications = \App\Models\Application::where('answer', 'yes');
 
         $declinedApplications = \App\Models\Application::where('answer', 'no')->count();
-        dd($declinedApplications);
     
         return view('applications',[
-            'applications'=> $applications
+            'applications'=> $applications,
+            'declinedApplications' => $declinedApplications,
         ]);
     }
 }

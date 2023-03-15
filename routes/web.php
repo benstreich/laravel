@@ -16,10 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/applications', function () {
-    return view('applications');
-});
-
 Route::get('/events', function () {
     return view('events');
 });
@@ -34,7 +30,7 @@ Route::get('/event/{id}', [EventController::class, 'show']);
 
 Route::post('/event', [ApplicationController::class, 'create']);
 
-Route::get('/event', [ApplicationController::class, 'list']);
+Route::get('/event/{id}/applications', [ApplicationController::class, 'list']);
 
 
 
