@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Application;
+use App\Models\Event;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,5 +20,13 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+
+        Event::truncate();
+        Application::truncate();
+
+        Event::factory()->count(50)->create();
+        Application::factory()->count(50)->create();
+
     }
 }

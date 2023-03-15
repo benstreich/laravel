@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\EventController;
+use Database\Factories\ApplicatioFactory;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,46 +16,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/applications', function () {
+    return view('applications');
+});
+
+Route::get('/events', function () {
+    return view('events');
+});
+
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/event', function () {
-    return view('event');
-});
 
-Route::get('/event', [EventController::class, 'show']);
+Route::get('/event/{id}', [EventController::class, 'show']);
 
-Route::post('/event', function(){
+Route::post('/event', [ApplicationController::class, 'create']);
 
-
-    $request = request();
-
-    $application = new \App\Models\Application();
-    $application->answer = $request->get('answer');
-    $application->first_name = $request->get('first_name');
-    $application->last_name = $request->get('last_name');
-    $application->email = $request->get('email');
-    $application->session_id = session()->getId();
-    $application->save();
-
-    return redirect('/event');
+Route::get('/event', [ApplicationController::class, 'list']);
 
 
 
-});
 
-
-Route::get('/event/applications', function(){
-
-    $applications = \App\Models\Application::where('answer', 'yes');
-
-    $declinedApplications = \App\Models\Application::where('answer', 'no')->count();
-    dd($declinedApplications);
-
-    return view('applications',[
-        'applications'=> $applications
-    ]);
-
-});
 
