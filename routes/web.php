@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,8 @@ Route::get('/event', function () {
     return view('event');
 });
 
+Route::get('/event', [EventController::class, 'show']);
+
 Route::post('/event', function(){
 
 
@@ -39,6 +42,7 @@ Route::post('/event', function(){
 
 
 });
+
 
 Route::get('/event/applications', function(){
 
