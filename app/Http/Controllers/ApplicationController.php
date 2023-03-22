@@ -8,10 +8,18 @@ use Illuminate\Http\Request;
 class ApplicationController extends Controller
 {
 
-    public function create(){
+    public function create($id){
 
         $request = request();
     
+        $request->validate([
+            'first_name' => ['required', 'max:255'],
+            'last_name' => ['required', 'max:255'],
+            'email' => ['required', 'email'],
+            'answer' => ['required', 'max:3', 'min:2'],
+        ]);
+
+
         $application = new \App\Models\Application();
         $application->answer = $request->get('answer');
         $application->first_name = $request->get('first_name');
@@ -20,16 +28,17 @@ class ApplicationController extends Controller
         $application->session_id = session()->getId();
         $application->save();
     
-        return redirect('/event');
+        return redirect('/event/' .$id . '/applications');
 
-    }
+    } 
 
-    public function list(){
-        $applications = \App\Models\Application::where('answer', 'yes');
+    public function list($id){
+        $applications = \App\Models\Application::where('event_id', $id)->where('answer', 'yes')->get();
 
-        $declinedApplications = \App\Models\Application::where('answer', 'no')->count();
+        $declinedApplications = \App\Models\Application::where('event_id', $id)->where('answer', 'no')->count();
     
         return view('applications',[
+            'event_id' => $id,
             'applications'=> $applications,
             'declinedApplications' => $declinedApplications,
         ]);
