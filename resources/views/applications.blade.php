@@ -11,49 +11,63 @@
 <body>
 
     <style>
-    body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
-
-p {
-    font-size: 24px;
-    margin: 20px 0;
-    text-align: center;
-}
-
+/* List */
 ul {
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    list-style-type: none;
-    margin: 20px auto;
-    max-width: 500px;
-    padding: 20px;
+  counter-reset: index;  
+  padding: 0;
+  max-width: 300px;
 }
 
+/* List element */
 li {
-    font-size: 18px;
-    margin: 10px 0;
+  counter-increment: index; 
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  box-sizing: border-box;
 }
 
-small {
-    display: block;
-    font-size: 14px;
-    margin: 20px auto;
-    text-align: center;
-}</style>
+
+/* Element counter */
+li::before {
+  content: counters(index, ".", decimal-leading-zero);
+  font-size: 1.5rem;
+  text-align: right;
+  font-weight: bold;
+  min-width: 50px;
+  padding-right: 12px;
+  font-variant-numeric: tabular-nums;
+  align-self: flex-start;
+  background-image: linear-gradient(to bottom, aquamarine, orangered);
+  background-attachment: fixed;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 
-    <p>Angemeldete Personen:</p>
-    <ul>
+
+/* Element separation */
+li + li {
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+@use postcss-preset-env {
+  stage: 0;
+  autoprefixer: {
+    grid: true;
+  }
+  browsers: last 2 versions
+}
+
+</style>
+
+    <h1>Angemeldete Personen:</h1>
+ 
         @foreach($applications as $application)
             <li>{{ $application -> first_name }} {{ $application -> last_name }}</li>
         @endforeach
-    </ul>
 
     <small>Anzahl der Personen die nicht kommen: {{$declinedApplications}}</small>
+
 </body>
 </html>
