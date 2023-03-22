@@ -133,7 +133,7 @@
   <body>
     <div class="main-block">
       <h1>{{$event -> title}}</h1>
-      <p>{{$event -> description}}</p>
+      <p>{{$event -> description}}</p> <br>
       <p>Date: {{$event -> date}}</p>
 
       <form method="post" action="?">

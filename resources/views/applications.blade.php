@@ -47,18 +47,10 @@ small {
 }</style>
 
 
-
-
-
-
-
-
-
-
     <p>Angemeldete Personen:</p>
     <ul>
         @foreach($applications as $application)
-            <li>{{ $application -> firstname }} {{ $application -> lastname }}</li>
+            <li>{{ $application -> first_name }} {{ $application -> last_name }}</li>
         @endforeach
     </ul>
 
