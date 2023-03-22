@@ -155,8 +155,8 @@
         <input type="text" name="email" id="email" placeholder="Email" required/>
       
         <div class="btn-block">
-          <p>By clicking Register, you agree on our <a href="https://www.w3docs.com/privacy-policy">Privacy Policy for W3Docs</a>.</p>
-          <button type="submit" href="/">Submit</button>
+          <p>By clicking Register, you agree on our <a href="https://www.youtube.com/watch?v=tvkxupwbFLk">Privacy Policy</a>.</p>
+          <button type="submit" href="/">Register</button>
         </div>
       </form>
 
