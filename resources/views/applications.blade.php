@@ -17,7 +17,9 @@ ul {
   padding: 0;
   max-width: 300px;
 }
-
+body{
+    background-color: #080710;
+}
 /* List element */
 li {
   counter-increment: index; 
@@ -61,13 +63,13 @@ li + li {
 
 </style>
 
-    <h1>Angemeldete Personen:</h1>
+    <h1 style="color: white">Angemeldete Personen:</h1>
  
         @foreach($applications as $application)
-            <li>{{ $application -> first_name }} {{ $application -> last_name }}</li>
+            <li style="color: white">{{ $application -> first_name }} {{ $application -> last_name }}</li>
         @endforeach
 
-    <small>Anzahl der Personen die nicht kommen: {{$declinedApplications}}</small>
+    <small style="color: white">Anzahl der Personen die nicht kommen: {{$declinedApplications}}</small>
 
 </body>
 </html>

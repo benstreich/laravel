@@ -4,6 +4,8 @@ use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\EventController;
 use Database\Factories\ApplicatioFactory;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +24,7 @@ Route::get('/event/{id}', [EventController::class, 'show']);
 Route::post('/event/{id}', [ApplicationController::class, 'create']);
 
 Route::get('/event/{id}/applications', [ApplicationController::class, 'list']);
+
+Route::get('/signin', [AdminController::class, 'show']);
 
 

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,7 +10,13 @@
       display: flex;
       justify-content: center;
       height: 100%;
+      background-image: linear-gradient(to bottom, aquamarine, orangered);
+
       }
+
+      
+
+
       body, div, h1, form, input, p { 
       padding: 0;
       margin: 0;
@@ -39,7 +46,7 @@
       border-radius: 5px; 
       border: solid 1px #ccc;
       box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
-      background: #ebebeb; 
+      background-color: #08071#0; 
       }
       form {
       margin: 0 30px;
@@ -71,7 +78,7 @@
       width: 20px;
       height: 20px;
       border-radius: 50%;
-      background: #1c87c9;
+      background: lightblue;
       }
       label.radio:after {
       content: "";
@@ -106,7 +113,7 @@
       display: inline-block;
       padding: 9.3px 15px;
       box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
-      background: #1c87c9;
+      background: lightgreen;
       color: #fff;
       text-align: center;
       }
@@ -120,30 +127,30 @@
       margin: 10px auto;
       border-radius: 5px; 
       border: none;
-      background: #1c87c9; 
+      background: violet; 
       font-size: 14px;
       font-weight: 600;
       color: #fff;
       }
       button:hover {
-      background: #26a9e0;
+        background: pink;
       }
     </style>
   </head>
   <body>
     <div class="main-block">
-      <h1>{{$event -> title}}</h1>
-      <p>{{$event -> description}}</p> <br>
-      <p>Date: {{$event -> date}}</p>
+      <h1 style="color: white">{{$event -> title}}</h1>
+      <p style="color: white">{{$event -> description}}</p> <br>
+      <p style="color: white">Date: {{$event -> date}}</p>
 
       <form method="post" action="?">
         @csrf
         <hr>
         <div class="account-type">
           <input type="radio" value="yes" id="answer1" name="answer" checked/>
-          <label for="answer1" class="radio">Available</label>
+          <label for="answer1" class="radio" style="color: white">Available</label>
           <input type="radio" value="no" id="answer2" name="answer" />
-          <label for="answer2" class="radio">Unavailable</label>
+          <label for="answer2" class="radio" style="color: white">Unavailable</label>
         </div>
         <hr>
        

@@ -9,12 +9,8 @@
 <body>
 
  <style>
-/* List */
-ul {
-  counter-reset: index;  
-  padding: 0;
-  max-width: 300px;
-}
+
+
 
 /* List element */
 li {
@@ -46,6 +42,7 @@ li::before {
 /* Element separation */
 li + li {
   border-top: 1px solid rgba(255,255,255,0.2);
+
 }
 
 @use postcss-preset-env {
@@ -56,15 +53,28 @@ li + li {
   browsers: last 2 versions
 }
 
+.header{
+  display: flex;
+  width: 100%;
+  height: 100px;
+  justify-content: space-between;
+}
+
+body{
+    background-color: #080710;
+}
 </style>
 
 
 
 
 <main>
-    <h1>Events</h1>
+<div class="header">
+    <h1 style="color: lightblue">Events</h1>
+   <a href="/signin"><h1 style="color: lightgreen">Sign In</h1></a>
+</div>
         @foreach($events as $event)
-            <li>{{ $event -> title }} <a href="/event/{{$event -> id}}">&emsp;Beitreten</a> </li>
+            <li style="color: white">{{ $event -> title }} <a href="/event/{{$event -> id}}">&emsp;Beitreten</a> </li>
         @endforeach
     
 </main>  
