@@ -133,8 +133,8 @@
   <body>
     <div class="main-block">
       <h1>{{$event -> title}}</h1>
-      <h2>{{$event -> description}}</h2>
-      <h3>Date: {{$event -> date}}</h3>
+      <p>{{$event -> description}}</p>
+      <p>Date: {{$event -> date}}</p>
 
       <form method="post" action="?">
         @csrf
