@@ -132,7 +132,10 @@
   </head>
   <body>
     <div class="main-block">
-      <h1>Registration</h1>
+      <h1>{{$event -> title}}</h1>
+      <h2>{{$event -> description}}</h2>
+      <h3>Date: {{$event -> date}}</h3>
+
       <form method="post" action="?">
         @csrf
         <hr>
