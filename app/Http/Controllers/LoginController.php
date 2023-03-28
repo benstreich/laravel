@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AdminUser;
 use App\Models\Registration;
 use App\Models\User;
 use Illuminate\Auth\Events\Login;
@@ -34,11 +35,24 @@ class LoginController extends Controller
       
     ); 
 
-   
+    $user = AdminUser::where('email', $request->email)->first();
+
+    if ($user && $request->password == $user->password) {
+        return redirect('/events_logedin');
+    } else {
+        return back()->with('fail', 'Anmeldung fehlgeschlagen');
+    }
 
     }
 
 
+    public function logedin(){
+        return view('/events_logedin');
+    }
+
 
 
 }
+
+
+

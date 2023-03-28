@@ -30,5 +30,10 @@ Route::get('/login', [LoginController::class, 'login']);
 
 Route::post('login-user', [LoginController::class, 'loginUser'])->name('login-user');
 
+Route::get('/events_logedin', [LoginController::class, 'logedin']);
+
+Route::get('/events_logedin', [EventController::class, 'listadmin']);
+
+
 
 

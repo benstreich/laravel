@@ -23,4 +23,11 @@ class EventController extends Controller
             'events' => $events
         ]);
     }
+
+    public function listadmin(){
+        $events = Event::all();
+        return view('events_logedin', [
+            'events' => $events
+        ]);
+    }
 }
