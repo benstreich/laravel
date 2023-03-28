@@ -2,9 +2,10 @@
 
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\LoginController;
 use Database\Factories\ApplicatioFactory;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -25,6 +26,9 @@ Route::post('/event/{id}', [ApplicationController::class, 'create']);
 
 Route::get('/event/{id}/applications', [ApplicationController::class, 'list']);
 
-Route::get('/signin', [AdminController::class, 'show']);
+Route::get('/login', [LoginController::class, 'login']);
+
+Route::post('login-user', [LoginController::class, 'loginUser'])->name('login-user');
+
 
 

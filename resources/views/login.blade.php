@@ -139,14 +139,15 @@ button{
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form>
+    <form action="{{route('login-user')}}" method="post">
+        @csrf
         <h3>Sign In</h3>
 
-        <label for="username">Username</label>
-        <input type="text" placeholder="Username" id="username">
+        <label for="email">Email</label>
+        <input type="text" placeholder="Email" id="email" name="email">
 
         <label for="password">Password</label>
-        <input type="password" placeholder="Password" id="password">
+        <input type="password" placeholder="Password" id="password" name="password">
 
         <button>Log In</button>
         <div class="social">
