@@ -139,7 +139,7 @@ button{
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form action="{{route('login-user')}}" method="post">
+    <form action="/events_logedin" method="post">
         @csrf
         <h3>Sign In</h3>
 

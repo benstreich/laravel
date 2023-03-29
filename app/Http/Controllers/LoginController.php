@@ -9,6 +9,7 @@ use Illuminate\Auth\Events\Login;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -35,20 +36,21 @@ class LoginController extends Controller
       
     ); 
 
-    $user = AdminUser::where('email', $request->email)->first();
+    $credentials = $request->only('email', 'password');
 
-    if ($user && $request->password == $user->password) {
-        return redirect('/events_logedin');
+    if (Auth::attempt($credentials)) {
+        
+        return redirect()->intended('/events_logedin');
     } else {
+
         return back()->with('fail', 'Anmeldung fehlgeschlagen');
     }
-
     }
-
 
     public function logedin(){
         return view('/events_logedin');
     }
+
 
 
 
