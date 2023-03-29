@@ -35,5 +35,7 @@ Route::get('/events_logedin', [LoginController::class, 'logedin']);
 Route::get('/events_logedin', [EventController::class, 'listadmin']);
 
 
-
+Route::get('/create_event', function (){
+   return view('create_event');
+});
 

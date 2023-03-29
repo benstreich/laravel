@@ -71,6 +71,7 @@ body{
 <main>
 <div class="header">
     <h1 style="color: lightblue">Events</h1>
+   <a href="/create_event"><h1 style="color: orange">Create Event</h1></a>
    <h1 style="color: lightgreen">Admin</h1>
 </div>
         @foreach($events as $event)

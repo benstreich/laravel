@@ -8,7 +8,27 @@ use Illuminate\Http\Request;
 class EventController extends Controller
 {
     //
-    
+    public function create()
+    {
+        $request = request();
+
+        $request->validate( [
+            'title' => 'required|max:255',
+            'date' => 'required|max:255',
+            'description' => 'required|max:255',
+        ], 
+            
+        );
+
+        $event = new \App\Models\Event();
+        $event->title = $request->get('title');
+        $event->description = $request->get('description');
+        $event->date = $request->get('date');
+        $event->save();
+
+        return redirect('/create_event');
+    }
+
     public function show($id){
         $event = Event::findOrFail($id);
 
