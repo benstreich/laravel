@@ -18,36 +18,54 @@ class LoginController extends Controller
         return view('login');
     }
 
+
     
+    public function add()
+    {
+
+        $request = request();
+
+
+        $application = new User();
+        $application->name = "Ben";
+        $application->email = "ben.streich@icloud.com";
+        $application->password = Hash::make("adminpw");
+
+        $application->save();
+
+        return redirect('/events_logedin');
+    }
+
 
     public function loginUser(Request $request)
     {
         $request->validate(
-        [
-            'email' => 'required|email',
-            'password' => 'required'
-        ],
+            [
+                'email' => 'required|email',
+                'password' => 'required'
+            ],
 
-        [
-            'email.required'=>'Email eingeben!',
-            'password.required'=>'Passwort eingeben!'
-        ],
+            [
+                'email.required' => 'Email eingeben!',
+                'password.required' => 'Passwort eingeben!'
+            ],
 
-      
-    ); 
 
-    $credentials = $request->only('email', 'password');
+        );
 
-    if (Auth::attempt($credentials)) {
-        
-        return redirect()->intended('/events_logedin');
-    } else {
+        $credentials = $request->only('email', 'password');
 
-        return back()->with('fail', 'Anmeldung fehlgeschlagen');
+        if (Auth::attempt($credentials)) {
+ddd("DDDDDDDDDDDDDDDDDDDDDDDDDd");
+            return redirect()->intended('/events_logedin');
+        } else {
+
+            return back()->with('fail', 'Anmeldung fehlgeschlagen');
+        }
     }
-    }
 
-    public function logedin(){
+    public function logedin()
+    {
         return view('/events_logedin');
     }
 
@@ -55,6 +73,3 @@ class LoginController extends Controller
 
 
 }
-
-
-

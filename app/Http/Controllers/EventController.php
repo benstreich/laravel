@@ -26,7 +26,7 @@ class EventController extends Controller
         $event->date = $request->get('date');
         $event->save();
 
-        return redirect('/create_event');
+        return redirect('/events_logedin');
     }
 
     public function show($id){

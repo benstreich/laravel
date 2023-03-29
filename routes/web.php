@@ -32,13 +32,18 @@ Route::post('login-user', [LoginController::class, 'loginUser'])->name('login-us
 
 Route::get('/events_logedin', [LoginController::class, 'logedin']);
 
+Route::get('/events_logedin', [EventController::class, 'listadmin']);
 Route::post('/events_logedin', [EventController::class, 'listadmin']);
 
 
 Route::get('/create_event', function (){
    return view('create_event');
-})->middleware('auth');
+});
 
-Route::post('/create_event', [EventController::class , 'create'])->middleware('auth');
+Route::post('/create_event', [EventController::class , 'create']);
+
+
+Route::get('/add', [LoginController::class, 'add']);
+
 
 
