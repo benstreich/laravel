@@ -80,8 +80,8 @@ form h3{
 
 label{
     display: block;
-    margin-top: 30px;
-    font-size: 16px;
+    margin-top: 20px;
+    font-size: 10px;
     font-weight: 500;
 }
 input{
@@ -139,9 +139,12 @@ button{
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form action="/login-user" method="post">
+    <form action="/register-user" method="post">
         @csrf
-        <h3>Sign In</h3>
+        <h2>Register</h2>
+
+         <label for="name">Name</label>
+         <input type="text" placeholder="name" name="name" id="name">
 
         <label for="email">Email</label>
         <input type="text" placeholder="Email" id="email" name="email">
@@ -149,9 +152,9 @@ button{
         <label for="password">Password</label>
         <input type="password" placeholder="Password" id="password" name="password">
         
-        <a href="/register"><label>Dont have an account yet?</label></a>
+        <a href="/login"><label>Already have an account</label></a>
 
-        <button>Log In</button>
+        <button>Register</button>
         
     </form>
 </body>

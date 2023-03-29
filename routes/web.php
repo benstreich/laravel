@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use Database\Factories\ApplicatioFactory;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RegistrationController;
 
 
 /*
@@ -30,10 +31,8 @@ Route::get('/login', [LoginController::class, 'login']);
 
 Route::post('login-user', [LoginController::class, 'loginUser'])->name('login-user');
 
-Route::get('/events_logedin', [LoginController::class, 'logedin']);
 
 Route::get('/events_logedin', [EventController::class, 'listadmin']);
-Route::post('/events_logedin', [EventController::class, 'listadmin']);
 
 
 Route::get('/create_event', function (){
@@ -43,7 +42,10 @@ Route::get('/create_event', function (){
 Route::post('/create_event', [EventController::class , 'create']);
 
 
-Route::get('/add', [LoginController::class, 'add']);
+
+
+Route::get('register', [RegistrationController::class, 'register']);
+Route::post('register-user', [RegistrationController::class, 'registerUser'])->name('register-user');
 
 
 
