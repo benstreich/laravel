@@ -61,8 +61,17 @@ li + li {
   browsers: last 2 versions
 }
 
+.header{
+  display: flex;
+  width: 100%;
+  height: 100px;
+  justify-content: space-between;
+}
 </style>
 
+<div class="header">
+    <a href="/"><h1 style="color: lightblue">Events</h1></a>
+</div>
     <h1 style="color: white">Angemeldete Personen:</h1>
  
         @foreach($applications as $application)

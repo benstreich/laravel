@@ -72,7 +72,7 @@ body{
 <div class="header">
     <h1 style="color: lightblue">Events</h1>
    <a href="/create_event"><h1 style="color: orange">Create Event</h1></a>
-   <h1 style="color: lightgreen">Admin</h1>
+   <a href="/logout"><h1 style="color: lightgreen">Logout</h1></a>
 </div>
         @foreach($events as $event)
             <li style="color: white">{{ $event -> title }} <a href="/event/{{$event -> id}}">&emsp;Beitreten</a> </li>
